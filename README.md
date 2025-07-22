@@ -17,7 +17,7 @@ This project showcases a real-time data pipeline built for an e-commerce system 
 
 ## 🗃️ Data Model (Star Schema)
 
-![Data Model](docs/data_model_ERD.jpg)
+![Data Model](ecommerce-data-pipeline/docs/data_model_ERD.jpg)
 
 Fact Table:
 - `fact_shipped_daily`
@@ -28,22 +28,13 @@ Dimension Tables:
 ## 🔁 Data Pipelines
 
 ### Master Control Pipeline
-![Master Pipeline](docs/renfro_master_pipeline.png)
+![Master Pipeline](ecommerce-data-pipeline/docs/renfro_master_pipeline.png)
 
 ### Dimensions and Fact Loading
-![Dimensions and Fact](docs/renfro_dimensions_fact_pipeline.png)
+![Dimensions and Fact](ecommerce-data-pipeline/docs/renfro_dimensions_fact_pipeline.png)
 
 ### Incremental Loading Logic
-![Incremental Process](docs/renfro_incremental_process.png)
-
-SQL Snippet:
-```sql
-DECLARE @MODIFIEDDATETIMECOPY1 DATE
-SET @MODIFIEDDATETIMECOPY1 = (
-  SELECT CONVERT(DATE, COALESCE(MAX(MODIFIEDDATETIMECOPY1), '1900-01-01'), 120)
-  FROM [stage].[ren_invact_sales_line_staging] WITH(NOLOCK)
-)
-SELECT @MODIFIEDDATETIMECOPY1 AS MODIFIEDDATETIMECOPY1
+![Incremental Process](ecommerce-data-pipeline/docs/renfro_incremental_process.png)
 
 ### 🛠️ ETL Logic and Transformations
 Key SQL Features Used:
@@ -67,7 +58,7 @@ Sample Insights:
 
 ⏱️ Shipping Trends over Time
 
-🧍‍♂️ Customer Segmentation by Gender and E-commerce behavior
+🧍‍♂️ Customer Segmentation by Gender and E-commerce Behavior
 ### 🚀 Technologies Used
 
 | Tool/Tech          | Purpose                              |
@@ -77,4 +68,13 @@ Sample Insights:
 | Power BI           | Reporting and dashboards             |
 | SQL                | Data manipulation, cleaning, merging |
 | GitHub             | Version control & portfolio          |
+
+SQL Snippet:
+```sql
+DECLARE @MODIFIEDDATETIMECOPY1 DATE
+SET @MODIFIEDDATETIMECOPY1 = (
+  SELECT CONVERT(DATE, COALESCE(MAX(MODIFIEDDATETIMECOPY1), '1900-01-01'), 120)
+  FROM [stage].[ren_invact_sales_line_staging] WITH(NOLOCK)
+)
+SELECT @MODIFIEDDATETIMECOPY1 AS MODIFIEDDATETIMECOPY1
 
