@@ -8,7 +8,7 @@ This project showcases a real-time data pipeline built for an e-commerce system 
 
 ## 🧱 Architecture
 
-![Architecture](docs/Architecture.png)
+![Architecture](ecommerce-data-pipeline/docs/Architecture.png)
 
 - Data Sources: Azure SQL Database & External Excel files
 - ETL Tool: Azure Data Factory
